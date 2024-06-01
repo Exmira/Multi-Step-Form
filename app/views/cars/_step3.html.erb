@@ -1,0 +1,14 @@
+  <%= form_with(model: car, local: true) do |form| %>
+  <%= turbo_frame_tag "step3" do %>
+    <div>
+      <div id="make-container">
+        <%= form.label :color, style: "display: block" %>
+        <%= form.select :color, options_for_select(color_options(car.make)) %>
+      </div>
+      <%= form.submit "Create" %>
+      <%= form.text_field :title, value: car.title, style: "display: none" %>
+      <%= form.text_field :make, value: car.make, style: "display: none" %>
+    <% end %>
+  </div>
+  <%= button_to "Back", previous_step_cars_path(step: 3, car: car), method: :post, local: false, params: { car: car.attributes } %>
+<% end %>

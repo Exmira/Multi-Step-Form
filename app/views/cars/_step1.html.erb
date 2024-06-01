@@ -1,0 +1,9 @@
+    <%= turbo_frame_tag "step1" do %>
+  <%= form_with(model: car, url: next_step_cars_path(step: 1), method: :post, local: false) do |form| %>
+    <div>
+      <%= form.label :title, style: "display: block" %>
+      <%= form.text_field :title %>
+    </div>
+    <%= form.submit "Next" %>
+  <% end %>
+<% end %>

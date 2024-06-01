@@ -1,0 +1,17 @@
+<p style="color: green"><%= notice %></p>
+<h1>Posts</h1>
+<div id="posts">
+  <% @posts.each do |post| %>
+    <%= render post %>
+    <p>
+      <%= link_to "Show this post", post %>
+    </p>
+  <% end %>
+</div>
+<turbo-frame id="frame-1">
+  <!-- Content of the first frame -->
+  <%= button_to "Next", next_page_path, remote: true, method: :post, form: { "data-turbo-frame": "frame-1" } %>
+</turbo-frame>
+<turbo-frame id="frame-2">
+</turbo-frame>
+<%= link_to "New post", new_post_path %>
